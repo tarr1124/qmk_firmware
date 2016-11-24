@@ -18,18 +18,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+-------+-------------|           |------+------+-------+------+------+------+---------|
  * | Tab    |   Q  |   W  |   E  |   R   |   T  | Right|           | Up   |   Y  |   U   |   I  |   O  |   P  | BackSpc |
  * |--------+------+------+------+-------+------|      |           |      |------+-------+------+------+------+---------|
- * | LCtrl  |   A  |   S  |   D  |   F   |   G  |------|           |------|   H  |   J   |   K  |   L  |   ;  |RSft/Ent |
+ * | LCtrl  |   A  |   S  |   D  |   F   |   G  |------|           |------|   H  |   J   |   K  |   L  |   ;  |   '"    |
  * |--------+------+------+------+-------+------| Left |           | Down |------+-------+------+------+------+---------|
  * | LShift |   Z  |   X  |   C  |   V   |   B  |      |           |      |   N  |   M   |   ,  |   .  |   /  |  `      |
  * `--------+------+------+------+-------+-------------'           `-------------+-------+------+------+------+---------'
- *   |C-Rght|LGui+X|LGUI+C|LGUI+V| LAlt  |                                       | RAlt  |   [  |   ]  | '"   | C-Right |
+ *   |LGui+X|LGUI+C|LGUI+V| LAlt |LG/Eisu|                                       |RG/Kana| RAlt |  [   |   ]  | C-Right |
  *   `-----------------------------------'                                       `--------------------------------------'
  *                                     ,---------------.           ,---------------.
  *                                     | Quiver|HipChat|           |  Up  |  Right |
  *                              ,------|-------|-------|           |------+--------+--------.
  *                              |      |       | Home  |           | Down |        |        |
- *                              | LG/  | Ctrl/ |-------|           |------| Ctrl/  |RG/Kana |
- *                              | Eisu | Space | L1    |           | Left | Space  |        |
+ *                              |Ctrl/ | Ctrl/ |-------|           |------| Ctrl/  |RSft/Ent|
+ *                              |Space | Space | L1    |           | Left | Space  |        |
  *                              `----------------------'           `------------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -40,19 +40,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,       KC_Q,    KC_W,   KC_E,   KC_R,   KC_T,   KC_LEFT,
         KC_LCTRL,     KC_A,    KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,      KC_Z,    KC_X,   KC_C,   KC_V,   KC_B,   KC_RGHT,
-        LCTL(KC_LEFT),LGUI(KC_X),LGUI(KC_C),LGUI(KC_V),KC_LALT,
+        LGUI(KC_X),LGUI(KC_C),LGUI(KC_V),KC_LALT,GUI_T(KC_LANG2),
                                                       LCTL(LGUI(KC_M)), LCTL(LGUI(KC_H)),
                                                                         KC_HOME,
-                                              GUI_T(KC_LANG2),CTL_T(KC_SPC), MO(SYMB),
+                                              CTL_T(KC_SPC),CTL_T(KC_SPC), MO(SYMB),
         // right hand
         KC_BSLS,      KC_7,           KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL,
         KC_UP,        KC_Y,           KC_U,   KC_I,   KC_O,   KC_P,   KC_BSPC,
-                      KC_H,           KC_J,   KC_K,   KC_L,   KC_SCLN,SFT_T(KC_ENT),
+                      KC_H,           KC_J,   KC_K,   KC_L,   KC_SCLN,KC_QUOT,
         KC_DOWN,      KC_N,           KC_M,   KC_COMM,KC_DOT, KC_SLSH,KC_GRV,
-                                      KC_RALT,KC_LBRC,KC_RBRC,KC_QUOT,LCTL(KC_RGHT),
+                                      GUI_T(KC_LANG1),KC_RALT,KC_LBRC,KC_RBRC,LCTL(KC_RGHT),
         KC_UP, KC_RGHT,
         KC_DOWN,
-        KC_LEFT,  CTL_T(KC_SPC), GUI_T(KC_LANG1)
+        KC_LEFT,  CTL_T(KC_SPC), SFT_T(KC_ENT)
     ),
 /* Keymap 1: Symbol Layer
  *
