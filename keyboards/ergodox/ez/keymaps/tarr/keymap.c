@@ -16,10 +16,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------.           ,----------------------------------------------------.
  * | ESC    |   1  |   2  |   3  |   4   |   5  |  6   |           |  \   |   7  |   8   |   9  |   0  |   -  |   =     |
  * |--------+------+------+------+-------+-------------|           |------+------+-------+------+------+------+---------|
- * | Tab    |   Q  |   W  |   E  |   R   |   T  | Left |           | Up   |   Y  |   U   |   I  |   O  |   P  | BackSpc |
+ * | Tab    |   Q  |   W  |   E  |   R   |   T  | Right|           | Up   |   Y  |   U   |   I  |   O  |   P  | BackSpc |
  * |--------+------+------+------+-------+------|      |           |      |------+-------+------+------+------+---------|
  * | LCtrl  |   A  |   S  |   D  |   F   |   G  |------|           |------|   H  |   J   |   K  |   L  |   ;  |RSft/Ent |
- * |--------+------+------+------+-------+------| Right|           | Down |------+-------+------+------+------+---------|
+ * |--------+------+------+------+-------+------| Left |           | Down |------+-------+------+------+------+---------|
  * | LShift |   Z  |   X  |   C  |   V   |   B  |      |           |      |   N  |   M   |   ,  |   .  |   /  |  `      |
  * `--------+------+------+------+-------+-------------'           `-------------+-------+------+------+------+---------'
  *   |C-Rght|LGui+X|LGUI+C|LGUI+V| LAlt  |                                       | RAlt  |   [  |   ]  | '"   | C-Right |
@@ -28,8 +28,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                     | Quiver|HipChat|           |  Up  |  Right |
  *                              ,------|-------|-------|           |------+--------+--------.
  *                              |      |       | Home  |           | Down |        |        |
- *                              | LG/  | Ctrl/ |-------|           |------|RShift/ |RG/Kana |
- *                              | Eisu | Space | L1    |           | Left |Enter   |        |
+ *                              | LG/  | Ctrl/ |-------|           |------| Ctrl/  |RG/Kana |
+ *                              | Eisu | Space | L1    |           | Left | Space  |        |
  *                              `----------------------'           `------------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       KC_RALT,KC_LBRC,KC_RBRC,KC_QUOT,LCTL(KC_RGHT),
         KC_UP, KC_RGHT,
         KC_DOWN,
-        KC_LEFT,  SFT_T(KC_ENT), GUI_T(KC_LANG1)
+        KC_LEFT,  CTL_T(KC_SPC), GUI_T(KC_LANG1)
     ),
 /* Keymap 1: Symbol Layer
  *
