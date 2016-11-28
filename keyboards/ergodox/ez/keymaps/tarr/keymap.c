@@ -28,8 +28,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                     | Quiver|HipChat|           |  Up  |  Right |
  *                              ,------|-------|-------|           |------+--------+--------.
  *                              |      |       | Home  |           | Down |        |        |
- *                              |Ctrl/ | Ctrl/ |-------|           |------| Ctrl/  |RSft/Ent|
- *                              |Space | Space | L1    |           | Left | Space  |        |
+ *                              |Ctrl/ |LShift |-------|           |------|RShift  |RSft/Ent|
+ *                              |Space |       | L1    |           | Left |        |        |
  *                              `----------------------'           `------------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LGUI(KC_X),LGUI(KC_C),LGUI(KC_V),KC_LALT,GUI_T(KC_LANG2),
                                                       LCTL(LGUI(KC_M)), LCTL(LGUI(KC_H)),
                                                                         KC_HOME,
-                                              CTL_T(KC_SPC),CTL_T(KC_SPC), MO(SYMB),
+                                              CTL_T(KC_SPC),KC_LSFT, MO(SYMB),
         // right hand
         KC_BSLS,      KC_7,           KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL,
         KC_UP,        KC_Y,           KC_U,   KC_I,   KC_O,   KC_P,   KC_BSPC,
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       GUI_T(KC_LANG1),KC_RALT,KC_LBRC,KC_RBRC,LCTL(KC_RGHT),
         KC_UP, KC_RGHT,
         KC_DOWN,
-        KC_LEFT,  CTL_T(KC_SPC), SFT_T(KC_ENT)
+        KC_LEFT,  KC_RSFT, SFT_T(KC_ENT)
     ),
 /* Keymap 1: Symbol Layer
  *
