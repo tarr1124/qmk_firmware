@@ -16,20 +16,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------.           ,----------------------------------------------------.
  * | ESC    |   1  |   2  |   3  |   4   |   5  |  6   |           |  \   |   7  |   8   |   9  |   0  |   -  |   =     |
  * |--------+------+------+------+-------+-------------|           |------+------+-------+------+------+------+---------|
- * | Tab    |   Q  |   W  |   E  |   R   |   T  | Right|           | Up   |   Y  |   U   |   I  |   O  |   P  | BackSpc |
+ * | Tab    |   Q  |   W  |   E  |   R   |   T  | Left |           | Up   |   Y  |   U   |   I  |   O  |   P  | BackSpc |
  * |--------+------+------+------+-------+------|      |           |      |------+-------+------+------+------+---------|
  * | LCtrl  |   A  |   S  |   D  |   F   |   G  |------|           |------|   H  |   J   |   K  |   L  |   ;  |   '"    |
- * |--------+------+------+------+-------+------| Left |           | Down |------+-------+------+------+------+---------|
+ * |--------+------+------+------+-------+------| Right|           | Down |------+-------+------+------+------+---------|
  * | LShift |   Z  |   X  |   C  |   V   |   B  |      |           |      |   N  |   M   |   ,  |   .  |   /  |  `      |
  * `--------+------+------+------+-------+-------------'           `-------------+-------+------+------+------+---------'
  *   |LGui+X|LGUI+C|LGUI+V| LAlt |LG/Eisu|                                       |RG/Kana| RAlt |  [   |   ]  | C-Right |
  *   `-----------------------------------'                                       `--------------------------------------'
  *                                     ,---------------.           ,---------------.
- *                                     | Quiver|HipChat|           |  Up  |  Right |
- *                              ,------|-------|-------|           |------+--------+--------.
- *                              |      |       | Home  |           | Down |        |        |
- *                              |Ctrl/ |LShift |-------|           |------|  RGUI  |RSft/Ent|
- *                              |Space |       | L1    |           | Left |        |        |
+ *                                     | Quiver|HipChat|           | ⌘ + [ | ⌘ + ] |
+ *                              ,------|-------|-------|           |-------+-------+--------.
+ *                              |      |       | Home  |           | ⌘ + ← |       |        |
+ *                              |Ctrl/ |LShift |-------|           |-------| RGUI  |RSft/Ent|
+ *                              |Space |       | L1    |           | ⌘ + → |       |        |
  *                              `----------------------'           `------------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -49,10 +49,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_UP,        KC_Y,           KC_U,   KC_I,   KC_O,   KC_P,   KC_BSPC,
                       KC_H,           KC_J,   KC_K,   KC_L,   KC_SCLN,KC_QUOT,
         KC_DOWN,      KC_N,           KC_M,   KC_COMM,KC_DOT, KC_SLSH,KC_GRV,
-                                      GUI_T(KC_LANG1),KC_RALT,KC_LBRC,KC_RBRC,KC_EJCT,
-        KC_UP, KC_RGHT,
-        KC_DOWN,
-        KC_LEFT,  KC_RGUI, SFT_T(KC_ENT)
+                                      GUI_T(KC_LANG1),KC_RALT,KC_LBRC,KC_RBRC,LSFT(LCTL(KC_EJCT)),
+        RGUI(KC_LBRC), RGUI(KC_RBRC),
+        RGUI(KC_LEFT),
+        RGUI(KC_RGHT),  KC_RGUI, SFT_T(KC_ENT)
     ),
 /* Keymap 1: Symbol Layer
  *
