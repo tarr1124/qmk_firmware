@@ -14,20 +14,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,---------------------------------------------------.           ,----------------------------------------------------.
- * | ESC    |   1  |   2  |   3  |   4   |   5  |  6   |           |  \   |   7  |   8   |   9  |   0  |   -  |   =     |
+ * | ESC    |   1  |   2  |   3  |   4   |   5  | HOME |           |  6   |   7  |   8   |   9  |   0  |   -  |   =     |
  * |--------+------+------+------+-------+-------------|           |------+------+-------+------+------+------+---------|
  * | Tab    |   Q  |   W  |   E  |   R   |   T  | Left |           | Up   |   Y  |   U   |   I  |   O  |   P  | BackSpc |
  * |--------+------+------+------+-------+------|      |           |      |------+-------+------+------+------+---------|
  * | LCtrl  |   A  |   S  |   D  |   F   |   G  |------|           |------|   H  |   J   |   K  |   L  |   ;  |   '"    |
  * |--------+------+------+------+-------+------| Right|           | Down |------+-------+------+------+------+---------|
- * | LShift |   Z  |   X  |   C  |   V   |   B  |      |           |      |   N  |   M   |   ,  |   .  |   /  |  `      |
+ * | LShift |   Z  |   X  |   C  |   V   |   B  |      |           |      |   N  |   M   |   ,  |   .  |   /  |   \     |
  * `--------+------+------+------+-------+-------------'           `-------------+-------+------+------+------+---------'
- *   |LGui+X|LGUI+C|LGUI+V| LAlt |LG/Eisu|                                       |RG/Kana| RAlt |  [   |   ]  | C-Right |
+ *   |LGui+X|LGUI+C|LGUI+V| LAlt |LG/Eisu|                                       |RG/Kana| RAlt |  [   |   ]  |   `     |
  *   `-----------------------------------'                                       `--------------------------------------'
  *                                     ,---------------.           ,---------------.
  *                                     | Quiver|HipChat|           | ⌘ + [ | ⌘ + ] |
  *                              ,------|-------|-------|           |-------+-------+--------.
- *                              |      |       | Home  |           | ⌘ + ← |       |        |
+ *                              |      |       | Eject |           | ⌘ + ← |       |        |
  *                              |Ctrl/ |LShift |-------|           |-------| RGUI  |RSft/Ent|
  *                              |Space |       | L1    |           | ⌘ + → |       |        |
  *                              `----------------------'           `------------------------'
@@ -36,20 +36,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_ESC,       KC_1,    KC_2,   KC_3,   KC_4,   KC_5,   KC_6,
+        KC_ESC,       KC_1,    KC_2,   KC_3,   KC_4,   KC_5,   KC_HOME,
         KC_TAB,       KC_Q,    KC_W,   KC_E,   KC_R,   KC_T,   KC_LEFT,
         KC_LCTRL,     KC_A,    KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,      KC_Z,    KC_X,   KC_C,   KC_V,   KC_B,   KC_RGHT,
         LGUI(KC_X),LGUI(KC_C),LGUI(KC_V),KC_LALT,GUI_T(KC_LANG2),
                                                       LCTL(LGUI(KC_M)), LCTL(LGUI(KC_H)),
-                                                                        KC_HOME,
+                                                                        KC_EJCT,
                                               CTL_T(KC_SPC),KC_LSFT, MO(SYMB),
         // right hand
-        KC_BSLS,      KC_7,           KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL,
+        KC_6,      KC_7,           KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL,
         KC_UP,        KC_Y,           KC_U,   KC_I,   KC_O,   KC_P,   KC_BSPC,
                       KC_H,           KC_J,   KC_K,   KC_L,   KC_SCLN,KC_QUOT,
-        KC_DOWN,      KC_N,           KC_M,   KC_COMM,KC_DOT, KC_SLSH,KC_GRV,
-                                      GUI_T(KC_LANG1),KC_RALT,KC_LBRC,KC_RBRC,LSFT(LCTL(KC_EJCT)),
+        KC_DOWN,      KC_N,           KC_M,   KC_COMM,KC_DOT, KC_SLSH,KC_BSLS,
+                                      GUI_T(KC_LANG1),KC_RALT,KC_LBRC,KC_RBRC,KC_GRV,
         RGUI(KC_LBRC), RGUI(KC_RBRC),
         RGUI(KC_LEFT),
         RGUI(KC_RGHT),  KC_RGUI, SFT_T(KC_ENT)
