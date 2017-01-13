@@ -22,10 +22,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+-------+------| Right|           | Down |------+-------+------+------+------+---------|
  * | LShift |   Z  |   X  |   C  |   V   |   B  |      |           |      |   N  |   M   |   ,  |   .  |   /  |   \     |
  * `--------+------+------+------+-------+-------------'           `-------------+-------+------+------+------+---------'
- *   |LGui+X|LGUI+C|LGUI+V| LAlt |LG/Eisu|                                       |RG/Kana|   [  |   ]  |   `  |  Eject  |
+ *   | ⌘⌥ ← | ⌘⌥ → | ⌘⌥ I | LAlt |LG/Eisu|                                       |RG/Kana|   [  |   ]  |   `  |  Eject  |
  *   `-----------------------------------'                                       `--------------------------------------'
  *                                     ,---------------.           ,---------------.
- *                                     | Quiver|HipChat|           | ⌘ + [ | ⌘ + ] |
+ *                                     |LGUI+C |LGUI+V |           | ⌘ + [ | ⌘ + ] |
  *                              ,------|-------|-------|           |-------+-------+--------.
  *                              |      |       | Undo  |           | ⌘ + ← |       |        |
  *                              |Ctrl/ |LShift |-------|           |-------|RShift |RSft/Ent|
@@ -40,9 +40,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,       KC_Q,    KC_W,   KC_E,   KC_R,   KC_T,   KC_LEFT,
         KC_LCTRL,     KC_A,    KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,      KC_Z,    KC_X,   KC_C,   KC_V,   KC_B,   KC_RGHT,
-        LGUI(KC_X),LGUI(KC_C),LGUI(KC_V),KC_LALT,GUI_T(KC_LANG2),
-                                                      LCTL(LGUI(KC_M)), LCTL(LGUI(KC_H)),
-                                                                        LGUI(KC_Z),
+        LGUI(LALT(KC_LEFT)),LGUI(LALT(KC_RGHT)),LGUI(LALT(KC_I)),KC_LALT,GUI_T(KC_LANG2),
+                                                         LGUI(KC_C),LGUI(KC_V),
+                                                                    LGUI(KC_Z),
                                               CTL_T(KC_SPC),KC_LSFT, MO(SYMB),
         // right hand
         KC_6,      KC_7,           KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL,
