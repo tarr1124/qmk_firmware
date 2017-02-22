@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | Undo | Copy |Paste | LAlt |LG/Eisu|                                       |RG/Kana|   [  |   ]  |   `  |  Eject  |
  *   `-----------------------------------'                                       `--------------------------------------'
  *                                     ,---------------.           ,---------------.
- *                                     | ⌘⌥ ←  | ⌘⌥ →  |           | ⌘ + [ | ⌘ + ] |
+ *                                     | ⌃⇧ Tab| ⌃ Tab |           | ⌘ + [ | ⌘ + ] |
  *                              ,------|-------|-------|           |-------+-------+--------.
  *                              |      |       | ⌘⌥ I  |           | ⌘ + ← |       |        |
  *                              |Ctrl/ |LShift |-------|           |-------|RShift |RSft/Ent|
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTRL,     KC_A,    KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,      KC_Z,    KC_X,   KC_C,   KC_V,   KC_B,   KC_RGHT,
         LGUI(KC_Z),LGUI(KC_C), LGUI(KC_V),KC_LALT,GUI_T(KC_LANG2),
-                                                         LGUI(LALT(KC_LEFT)),LGUI(LALT(KC_RGHT)),
+                                                         LCTL(LSFT(KC_TAB)),LCTL(KC_TAB),
                                                                     LGUI(LALT(KC_I)),
                                               CTL_T(KC_SPC),KC_LSFT, MO(SYMB),
         // right hand
