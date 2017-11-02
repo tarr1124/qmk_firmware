@@ -71,6 +71,14 @@ typedef struct
     USB_Descriptor_Endpoint_t             Extrakey_INEndpoint;
 #endif
 
+#ifdef RAW_ENABLE
+    // Raw HID Interface
+    USB_Descriptor_Interface_t            Raw_Interface;
+    USB_HID_Descriptor_HID_t              Raw_HID;
+    USB_Descriptor_Endpoint_t             Raw_INEndpoint;
+    USB_Descriptor_Endpoint_t             Raw_OUTEndpoint;
+#endif
+
 #ifdef CONSOLE_ENABLE
     // Console HID Interface
     USB_Descriptor_Interface_t            Console_Interface;
@@ -125,10 +133,19 @@ typedef struct
 /* index of interface */
 #define KEYBOARD_INTERFACE          0
 
-#ifdef MOUSE_ENABLE
-#   define MOUSE_INTERFACE          (KEYBOARD_INTERFACE + 1)
+// It is important that the Raw HID interface is at a constant
+// interface number, to support Linux/OSX platforms and chrome.hid
+// If Raw HID is enabled, let it be always 1.
+#ifdef RAW_ENABLE
+#   define RAW_INTERFACE        	(KEYBOARD_INTERFACE + 1)
 #else
-#   define MOUSE_INTERFACE          KEYBOARD_INTERFACE
+#   define RAW_INTERFACE        	KEYBOARD_INTERFACE
+#endif
+
+#ifdef MOUSE_ENABLE
+#   define MOUSE_INTERFACE          (RAW_INTERFACE + 1)
+#else
+#   define MOUSE_INTERFACE          RAW_INTERFACE
 #endif
 
 #ifdef EXTRAKEY_ENABLE
@@ -182,12 +199,19 @@ typedef struct
 #   define EXTRAKEY_IN_EPNUM        MOUSE_IN_EPNUM
 #endif
 
-#ifdef CONSOLE_ENABLE
-#   define CONSOLE_IN_EPNUM         (EXTRAKEY_IN_EPNUM + 1)
-#   define CONSOLE_OUT_EPNUM        (EXTRAKEY_IN_EPNUM + 1)
-//#   define CONSOLE_OUT_EPNUM        (EXTRAKEY_IN_EPNUM + 2)
+#ifdef RAW_ENABLE
+#   define RAW_IN_EPNUM         (EXTRAKEY_IN_EPNUM + 1)
+#   define RAW_OUT_EPNUM        (EXTRAKEY_IN_EPNUM + 2)
 #else
-#   define CONSOLE_OUT_EPNUM        EXTRAKEY_IN_EPNUM
+#   define RAW_OUT_EPNUM        EXTRAKEY_IN_EPNUM
+#endif
+
+#ifdef CONSOLE_ENABLE
+#   define CONSOLE_IN_EPNUM         (RAW_OUT_EPNUM + 1)
+//#   define CONSOLE_OUT_EPNUM        (RAW_OUT_EPNUM + 2)
+#   define CONSOLE_OUT_EPNUM        (RAW_OUT_EPNUM + 1)
+#else
+#   define CONSOLE_OUT_EPNUM        RAW_OUT_EPNUM
 #endif
 
 #ifdef NKRO_ENABLE
@@ -217,14 +241,15 @@ typedef struct
 #   define CDC_OUT_EPNUM	MIDI_STREAM_OUT_EPNUM
 #endif
 
-
-#if defined(__AVR_ATmega32U2__) && CDC_OUT_EPNUM > 4
+#if (defined(__AVR_ATmega32U2__) && CDC_OUT_EPNUM > 4) || \
+    (defined(__AVR_ATmega32U4__) && CDC_OUT_EPNUM > 6)
 # error "Endpoints are not available enough to support all functions. Remove some in Makefile.(MOUSEKEY, EXTRAKEY, CONSOLE, NKRO, MIDI, SERIAL)"
 #endif
 
 #define KEYBOARD_EPSIZE             8
 #define MOUSE_EPSIZE                8
 #define EXTRAKEY_EPSIZE             8
+#define RAW_EPSIZE              	32
 #define CONSOLE_EPSIZE              32
 #define NKRO_EPSIZE                 32
 #define MIDI_STREAM_EPSIZE          64
@@ -233,7 +258,7 @@ typedef struct
 
 
 uint16_t CALLBACK_USB_GetDescriptor(const uint16_t wValue,
-                                    const uint8_t wIndex,
+                                    const uint16_t wIndex,
                                     const void** const DescriptorAddress)
                                     ATTR_WARN_UNUSED_RESULT ATTR_NON_NULL_PTR_ARG(3);
 
