@@ -32,9 +32,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                     ,---------------.           ,---------------.
  *                                     | ⌃⇧ Tab| ⌃ Tab |           |StepIn |StepOvr|
  *                              ,------|-------|-------|           |-------+-------+--------.
- *                              |      |       | ⌘⌥ I  |           | ⌘ + ← |       |        |
+ *                              |      |       | ⌘⌥ I  |           |TgglBrk|       |        |
  *                              |Ctrl/ |LShift |-------|           |-------|RShift |RSft/Ent|
- *                              |Space |       | L1    |           | Resume|       |        |
+ *                              |Space |       | L1    |           |Resume |       |        |
  *                              `----------------------'           `------------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_DOWN,      KC_N,           KC_M,   KC_COMM,KC_DOT, KC_SLSH,KC_BSLS,
                                       GUI_T(KC_LANG1),KC_LBRC,KC_RBRC,KC_GRV,KC_EJCT,
         KC_F7, KC_F8,
-        RGUI(KC_LEFT),
+        RGUI(KC_F8),
         LGUI(LALT(KC_R)),  KC_RSFT, SFT_T(KC_ENT)
     ),
 
