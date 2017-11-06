@@ -30,11 +30,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | Undo | Copy |Paste | LAlt |LG/Eisu|                                       |RG/Kana|   [  |   ]  |   `  |  Eject  |
  *   `-----------------------------------'                                       `--------------------------------------'
  *                                     ,---------------.           ,---------------.
- *                                     | ⌃⇧ Tab| ⌃ Tab |           | ⌘ + [ | ⌘ + ] |
+ *                                     | ⌃⇧ Tab| ⌃ Tab |           |StepIn |StepOvr|
  *                              ,------|-------|-------|           |-------+-------+--------.
  *                              |      |       | ⌘⌥ I  |           | ⌘ + ← |       |        |
  *                              |Ctrl/ |LShift |-------|           |-------|RShift |RSft/Ent|
- *                              |Space |       | L1    |           | ⌘ + → |       |        |
+ *                              |Space |       | L1    |           | Resume|       |        |
  *                              `----------------------'           `------------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -55,9 +55,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_H,           KC_J,   KC_K,   KC_L,   KC_SCLN,KC_QUOT,
         KC_DOWN,      KC_N,           KC_M,   KC_COMM,KC_DOT, KC_SLSH,KC_BSLS,
                                       GUI_T(KC_LANG1),KC_LBRC,KC_RBRC,KC_GRV,KC_EJCT,
-        RGUI(KC_LBRC), RGUI(KC_RBRC),
+        KC_F7, KC_F8,
         RGUI(KC_LEFT),
-        RGUI(KC_RGHT),  KC_RSFT, SFT_T(KC_ENT)
+        LGUI(LALT(KC_R)),  KC_RSFT, SFT_T(KC_ENT)
     ),
 
 /* Keymap 1: Symbol Layer
